@@ -1,0 +1,21 @@
+<label style="font-weight: bold;">Items</label>
+<div class="row">
+  <div class="col-sm">
+    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [placeholder]="'search for items'" field="productName" (onSelect)="addditem($event)" [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
+  </div>
+</div>
+<br>
+<div *ngIf="treatment.invoices.length != 0" style="margin-top: .1em">
+  <div style="font-weight: bold; font-style: italic; font-size: small" class="row">
+    <div class="col-sm-4">ITEM</div>
+    <div class="col-sm-4">QUANTITY</div>
+    <div class="col-sm-4">AMOUNT</div>
+  </div>
+  <div class="row" *ngFor="let item of treatment.invoices[0].items; let i = index">
+    <div class="col-sm-4">{{item.description}}</div>
+    <div class="col-sm-4">{{item.quantity}}</div>
+    <div class="col-sm-3">{{item.unitPrice.amount}}</div>
+    <div class="col-sm-1"><i (click)="delete(item.id)" class="fa fa-minus-circle"></i></div>
+  </div>
+</div>
+<br>

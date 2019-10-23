@@ -1,0 +1,13 @@
+<label style="font-weight: bold;">Diagnosis</label>
+<div class="row">
+  <div class="col-sm-12">
+    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [placeholder]="'search for diagnosis'" field="diagnosisName" (onSelect)="adddiagnosis($event)" [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
+  </div>
+</div>
+<div style="margin-top: .1em">
+  <div class="row" *ngFor="let diagnos of treatment.treatmentDiagnoses; let i = index">
+    <div class="col-sm-10">{{diagnos.description}}</div>
+    <div class="col-sm-1"><i (click)="delete(diagnos.id)" class="fa fa-minus-circle"></i></div>
+  </div>
+</div>
+<br>

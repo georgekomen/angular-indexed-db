@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Offline Billing Screen</h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Treatment Code:</label>
+      <div class="col-sm-4">
+        <input (keyup.enter)="searchOrCreate()" [(ngModel)]="treatmentcode" type="text" class="form-control" placeholder="enter treatment code">
+      </div>
+    </div>
+
+    <div *ngIf="treatmentReady">
+      <app-treatment-item [treatment]="treatment"></app-treatment-item>
+      <app-treatment-diagnosis [treatment]="treatment"></app-treatment-diagnosis>
+    </div>
+
+  </div>
+  <div class="panel-footer"></div>
+</div>
+
+
